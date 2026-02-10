@@ -1,0 +1,87 @@
+# ========================================
+#           EtherealDrops Config
+# ========================================
+# A position-based reward system for MythicMobs
+# 
+# Quick Start:
+# 1. Configure your bosses in tracked_bosses.yml
+# 2. Set up rewards in rewards.yml
+# 3. Customize messages in messages.yml
+# 4. Configure holograms in holograms.yml
+#
+# Commands: /etherealdrops (or /ed, /drops)
+# ========================================
+
+# Database Settings
+database:
+  # Database type: sqlite or mysql
+  type: sqlite
+  
+  # SQLite settings (default)
+  sqlite:
+    file: etherealdrops.db
+  
+  # MySQL settings (if type is mysql)
+  mysql:
+    host: localhost
+    port: 3306
+    database: etherealdrops
+    username: root
+    password: password
+    useSSL: false
+
+# Display Settings
+display:
+  # How to format damage numbers
+  # Examples: "%.0f" = 1234, "%.2f" = 1234.56, "%,.0f" = 1,234
+  damage_format: "%.0f"
+  
+  # How to format percentages
+  # Examples: "%.1f" = 12.3%, "%.2f" = 12.34%
+  percentage_format: "%.1f"
+  
+  # Default number of top players to show in leaderboards
+  default_top_players: 3
+
+# Boss Victory Messages
+# Configure per-boss messages in messages.yml
+# This section defines default behavior
+victory_messages:
+  # Broadcast to all players or only participants?
+  broadcast_to_all: true
+  
+  # Show personal damage stats to each player?
+  show_personal_stats: true
+  
+  # Message for players who didn't participate
+  show_non_participant_message: true
+
+# Hologram Settings
+holograms:
+  # Enable holograms? (Requires FancyHolograms)
+  enabled: true
+  
+  # How long holograms stay (in seconds)
+  duration: 30
+  
+  # Hologram height offset from boss death location
+  height_offset: 2.5
+
+# Placeholder Settings
+placeholders:
+  # Enable PlaceholderAPI integration?
+  enabled: true
+  
+  # Cache duration for placeholders (in seconds)
+  cache_duration: 5
+
+# Debug Settings
+debug:
+  # Enable debug logging?
+  enabled: false
+  
+  # Log reward distributions?
+  log_rewards: true
+  
+  # Log damage tracking?
+  log_damage: false

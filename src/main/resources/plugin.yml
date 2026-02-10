@@ -1,0 +1,34 @@
+name: EtherealDrops
+version: '${project.version}'
+main: com.fizzexual.damagetracker.DamageTracker
+api: '1.19'
+depend: [ MythicMobs, PlaceholderAPI, FancyHolograms ]
+softdepend: [ Vault, LuckPerms ]
+
+commands:
+  etherealdrops:
+    description: Main command for the EtherealDrops plugin
+    usage: |
+      /<command> reload - Reloads the configuration
+      /<command> check <bossId> - Shows your damage to the specified boss
+      /<command> top <bossId> - Shows the top damage to the specified boss
+      /<command> clear <bossId> - Clears the damage data of the specified boss
+    aliases: [ ed, drops ]
+    permission: etherealdrops.use
+
+permissions:
+  etherealdrops.use:
+    description: Allows using the EtherealDrops command
+    default: true
+  etherealdrops.reload:
+    description: Allows reloading the plugin configuration
+    default: op
+  etherealdrops.check:
+    description: Allows checking personal damage to a boss
+    default: true
+  etherealdrops.checktop:
+    description: Allows viewing the damage ranking of a boss
+    default: true
+  etherealdrops.cleardata:
+    description: Allows clearing damage data of a boss
+    default: op

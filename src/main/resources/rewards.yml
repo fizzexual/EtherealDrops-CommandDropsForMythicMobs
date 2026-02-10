@@ -1,0 +1,114 @@
+# ========================================
+#         Rewards Configuration
+# ========================================
+# Define rewards for each boss based on leaderboard position
+# 
+# IMPORTANT: Boss names MUST match your MythicMobs mob internal name exactly!
+# The plugin will convert them to uppercase for matching.
+#
+# Reward Properties:
+#   position: 1-999 (leaderboard position)
+#   type: item or command
+#   
+# For ITEM rewards:
+#   material: MINECRAFT_MATERIAL_NAME
+#   amount: 1-64
+#   inventory: true (add to inventory) / false (drop on ground)
+#   per_player: true (each player gets own drop) / false (shared drop)
+#   visibility: all (everyone can pick up) / player_only (only owner)
+#   glow: true (enchantment glow) / false (normal)
+#
+# For COMMAND rewards:
+#   command: "command to execute"
+#   Placeholders: {player}, {boss}, {position}
+# ========================================
+
+bosses:
+  
+  # Example Boss - matches MythicMobs mob name "Example"
+  Example:
+    enabled: true
+    rewards:
+      # First Place - Broadcast command
+      - position: 1
+        type: command
+        command: "say {player} defeated {boss} and got 1st place!"
+      
+      # Second Place - Command reward
+      - position: 2
+        type: command
+        command: "say {player} got 2nd place against {boss}!"
+      
+      # Third Place - Command reward
+      - position: 3
+        type: command
+        command: "say {player} got 3rd place against {boss}!"
+  
+  # Epic Dragon Boss
+  EpicDragon:
+    enabled: true
+    rewards:
+      # First Place - Multiple commands
+      - position: 1
+        type: command
+        command: "give {player} minecraft:elytra 1"
+      
+      - position: 1
+        type: command
+        command: "say {player} claimed 1st place against {boss}!"
+      
+      # Second Place
+      - position: 2
+        type: command
+        command: "say {player} got 2nd place against {boss}!"
+      
+      # Third Place
+      - position: 3
+        type: command
+        command: "say {player} got 3rd place against {boss}!"
+  
+  # Raid Boss
+  RaidBoss:
+    enabled: true
+    rewards:
+      # Top 3 get special rewards
+      - position: 1
+        type: command
+        command: "give {player} minecraft:netherite_sword 1"
+      
+      - position: 2
+        type: command
+        command: "give {player} minecraft:netherite_axe 1"
+      
+      - position: 3
+        type: command
+        command: "give {player} minecraft:netherite_pickaxe 1"
+      
+      # Top 10 get participation rewards
+      - position: 4
+        type: command
+        command: "give {player} minecraft:diamond 5"
+      
+      - position: 5
+        type: command
+        command: "give {player} minecraft:diamond 5"
+      
+      - position: 6
+        type: command
+        command: "give {player} minecraft:diamond 3"
+      
+      - position: 7
+        type: command
+        command: "give {player} minecraft:diamond 3"
+      
+      - position: 8
+        type: command
+        command: "give {player} minecraft:gold_ingot 10"
+      
+      - position: 9
+        type: command
+        command: "give {player} minecraft:gold_ingot 10"
+      
+      - position: 10
+        type: command
+        command: "give {player} minecraft:gold_ingot 5"

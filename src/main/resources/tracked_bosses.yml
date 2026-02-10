@@ -1,0 +1,77 @@
+# ========================================
+#         Tracked Bosses Configuration
+# ========================================
+# Define which MythicMobs bosses to track
+# Boss names must match your MythicMobs configuration
+#
+# Each boss can have custom settings for:
+# - Victory messages
+# - Leaderboard display
+# - Holograms
+# ========================================
+
+# List of bosses to track
+# Format: BossName: settings
+bosses:
+  
+  # Example Boss
+  Example:
+    # Enable tracking for this boss?
+    enabled: true
+    
+    # Number of top players to show in victory message
+    top_players_shown: 3
+    
+    # Broadcast victory message to all players?
+    broadcast: true
+    
+    # Show hologram on death?
+    hologram: true
+    
+    # Custom message IDs (from messages.yml)
+    messages:
+      victory: "default"
+      personal: "default"
+      non_participant: "default"
+      position_format: "default"
+  
+  # Example Boss 2 - Epic Boss
+  EpicDragon:
+    enabled: true
+    top_players_shown: 5
+    broadcast: true
+    hologram: true
+    messages:
+      victory: "epic"
+      personal: "epic"
+      non_participant: "epic"
+      position_format: "epic"
+  
+  # Example Boss 3 - Raid Boss
+  RaidBoss:
+    enabled: true
+    top_players_shown: 10
+    broadcast: true
+    hologram: true
+    messages:
+      victory: "raid"
+      personal: "default"
+      non_participant: "default"
+      position_format: "default"
+
+# Default settings for bosses not explicitly configured
+# If a MythicMob dies and isn't in the list above, these settings apply
+default:
+  enabled: false  # Set to true to track ALL MythicMobs by default
+  top_players_shown: 3
+  broadcast: true
+  hologram: false
+  messages:
+    victory: "default"
+    personal: "default"
+    non_participant: "default"
+    position_format: "default"
+  
+  # Data persistence settings
+  persist_data: false  # Keep damage data after boss death?
+  data_retention_time: 300  # How long to keep data (seconds), -1 = until restart

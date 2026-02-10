@@ -1,0 +1,110 @@
+# ========================================
+#         Victory Messages Configuration
+# ========================================
+# Define custom messages for boss victories
+# Uses MiniMessage format for colors and formatting
+# 
+# Available Placeholders:
+# {boss_name} - Name of the boss
+# {top_players} - Formatted list of top players
+# {personal_damage} - Player's personal damage stats
+# {player_name} - Player's name
+# {damage} - Damage amount
+# {percentage} - Damage percentage
+# {position} - Player's position in leaderboard
+# {prefix} - Player's prefix (from Vault/LuckPerms)
+#
+# MiniMessage Format Examples:
+# <red>Red Text</red>
+# <gold><bold>Bold Gold</bold></gold>
+# <gradient:red:blue>Gradient</gradient>
+# <rainbow>Rainbow Text</rainbow>
+# ========================================
+
+# Victory Messages
+# These are shown when a boss is defeated
+victory:
+  
+  default:
+    - ""
+    - "<gold><bold>⚔ BOSS DEFEATED ⚔</bold></gold>"
+    - "<yellow>{boss_name} has been slain!</yellow>"
+    - ""
+    - "<aqua>Top Damage Dealers:</aqua>"
+    - "{top_players}"
+    - ""
+    - "{personal_damage}"
+    - ""
+  
+  epic:
+    - ""
+    - "<gradient:red:gold><bold>═══════════════════════════</bold></gradient>"
+    - "<gradient:gold:yellow><bold>⚔ EPIC BOSS DEFEATED ⚔</bold></gradient>"
+    - "<gradient:red:gold><bold>═══════════════════════════</bold></gradient>"
+    - ""
+    - "<yellow>The legendary <red><bold>{boss_name}</bold></red> has fallen!</yellow>"
+    - ""
+    - "<aqua><bold>Top Warriors:</bold></aqua>"
+    - "{top_players}"
+    - ""
+    - "{personal_damage}"
+    - ""
+    - "<gradient:red:gold><bold>═══════════════════════════</bold></gradient>"
+    - ""
+  
+  raid:
+    - ""
+    - "<dark_red><bold>╔═══════════════════════════╗</bold></dark_red>"
+    - "<red><bold>    RAID BOSS ELIMINATED    </bold></red>"
+    - "<dark_red><bold>╚═══════════════════════════╝</bold></dark_red>"
+    - ""
+    - "<yellow>{boss_name} has been defeated by the raid!</yellow>"
+    - ""
+    - "<gold>Top 10 Contributors:</gold>"
+    - "{top_players}"
+    - ""
+    - "{personal_damage}"
+    - ""
+
+# Personal Damage Messages
+# Shown to players who participated in the fight
+personal:
+  
+  default: "<green>Your Contribution:</green> <yellow>#{position}</yellow> - <gold>{damage}</gold> <gray>({percentage}%)</gray>"
+  
+  epic: "<gradient:green:aqua>Your Epic Contribution:</gradient> <yellow><bold>#{position}</bold></yellow> - <gold><bold>{damage}</bold></gold> <gray>({percentage}%)</gray>"
+
+# Non-Participant Messages
+# Shown to players who didn't participate
+non_participant:
+  
+  default: "<gray>You did not participate in this fight.</gray>"
+  
+  epic: "<dark_gray><italic>You watched from the sidelines...</italic></dark_gray>"
+
+# Position Format
+# How each player is displayed in the top players list
+position_format:
+  
+  default:
+    - "<yellow>#{position}</yellow> <white>{prefix}{player_name}</white> - <gold>{damage}</gold> <gray>({percentage}%)</gray>"
+    - "<yellow>#{position}</yellow> <white>{prefix}{player_name}</white> - <gold>{damage}</gold> <gray>({percentage}%)</gray>"
+    - "<yellow>#{position}</yellow> <white>{prefix}{player_name}</white> - <gold>{damage}</gold> <gray>({percentage}%)</gray>"
+  
+  epic:
+    - "<gradient:gold:yellow>🥇 {prefix}{player_name}</gradient> - <gold><bold>{damage}</bold></gold> <gray>({percentage}%)</gray>"
+    - "<gradient:gray:white>🥈 {prefix}{player_name}</gradient> - <gold>{damage}</gold> <gray>({percentage}%)</gray>"
+    - "<gradient:orange:red>🥉 {prefix}{player_name}</gradient> - <gold>{damage}</gold> <gray>({percentage}%)</gray>"
+    - "<white>#{position} {prefix}{player_name}</white> - <yellow>{damage}</yellow> <gray>({percentage}%)</gray>"
+    - "<white>#{position} {prefix}{player_name}</white> - <yellow>{damage}</yellow> <gray>({percentage}%)</gray>"
+
+# Plugin Messages
+# General plugin messages
+plugin:
+  prefix: "<gradient:aqua:blue>[EtherealDrops]</gradient> "
+  reload: "<green>Configuration reloaded successfully!</green>"
+  no_permission: "<red>You don't have permission to use this command.</red>"
+  boss_not_found: "<red>Boss '{boss}' not found or not being tracked.</red>"
+  no_data: "<yellow>No damage data available for this boss.</yellow>"
+  data_cleared: "<green>Damage data cleared for {boss}.</green>"
+  invalid_command: "<red>Invalid command. Use /ed help for help.</red>"

@@ -1,0 +1,89 @@
+# ========================================
+#         Hologram Configuration
+# ========================================
+# Configure victory holograms that appear when bosses die
+# Requires FancyHolograms plugin
+#
+# Available Placeholders:
+# {boss_name} - Name of the defeated boss
+# {player_name} - Player's name
+# {damage} - Damage dealt
+# {percentage} - Damage percentage
+# {position} - Player's position
+# {prefix} - Player's prefix
+# ========================================
+
+# Hologram Templates
+templates:
+  
+  default:
+    # Lines of the hologram (top to bottom)
+    lines:
+      - "<gold><bold>⚔ BOSS DEFEATED ⚔</bold></gold>"
+      - "<yellow>{boss_name}</yellow>"
+      - ""
+      - "<aqua>Top Damage:</aqua>"
+      - "<yellow>#{position}</yellow> <white>{prefix}{player_name}</white>"
+      - "<gold>{damage}</gold> <gray>({percentage}%)</gray>"
+    
+    # How long the hologram stays (seconds)
+    duration: 30
+    
+    # Height offset from boss death location
+    height: 2.5
+    
+    # Maximum players to show
+    max_players: 3
+  
+  epic:
+    lines:
+      - "<gradient:red:gold><bold>═══════════════</bold></gradient>"
+      - "<gradient:gold:yellow><bold>EPIC BOSS DEFEATED</bold></gradient>"
+      - "<gradient:red:gold><bold>═══════════════</bold></gradient>"
+      - ""
+      - "<red><bold>{boss_name}</bold></red>"
+      - ""
+      - "<aqua><bold>Top Warriors:</bold></aqua>"
+      - "<gradient:gold:yellow>🥇 {prefix}{player_name}</gradient>"
+      - "<gold><bold>{damage}</bold></gold> <gray>({percentage}%)</gray>"
+    
+    duration: 60
+    height: 3.0
+    max_players: 5
+  
+  raid:
+    lines:
+      - "<dark_red><bold>╔═══════════════╗</bold></dark_red>"
+      - "<red><bold>RAID COMPLETE</bold></red>"
+      - "<dark_red><bold>╚═══════════════╝</bold></dark_red>"
+      - ""
+      - "<yellow>{boss_name}</yellow>"
+      - ""
+      - "<gold>Top Contributors:</gold>"
+      - "<yellow>#{position}</yellow> <white>{player_name}</white>"
+      - "<gold>{damage}</gold>"
+    
+    duration: 45
+    height: 2.5
+    max_players: 10
+
+# Per-Boss Hologram Settings
+# Override template settings for specific bosses
+bosses:
+  
+  ExampleBoss:
+    template: default
+    enabled: true
+  
+  EpicDragon:
+    template: epic
+    enabled: true
+  
+  RaidBoss:
+    template: raid
+    enabled: true
+
+# Default hologram settings for bosses not explicitly configured
+default:
+  template: default
+  enabled: false
