@@ -29,10 +29,14 @@ bosses:
   Example:
     enabled: true
     rewards:
-      # First Place - Broadcast command
+      # First Place - Multiple commands (both should execute)
       - position: 1
         type: command
         command: "say {player} defeated {boss} and got 1st place!"
+      
+      - position: 1
+        type: command
+        command: "say {player} predi {boss} and got 1st place!"
       
       # Second Place - Command reward
       - position: 2

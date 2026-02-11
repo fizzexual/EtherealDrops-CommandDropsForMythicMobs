@@ -173,6 +173,13 @@ public class RewardManager {
             List<RewardConfig.Reward> positionRewards = config.getRewardsForPosition(position);
 
             plugin.getLogger().info("Distributing " + positionRewards.size() + " rewards to " + player.getName() + " for position " + position + " on boss " + bossName);
+            
+            // Log each reward found for this position
+            for (int j = 0; j < positionRewards.size(); j++) {
+                RewardConfig.Reward r = positionRewards.get(j);
+                plugin.getLogger().info("  Reward #" + (j+1) + ": type=" + r.getType() + 
+                    ", command=" + (r.getCommand() != null ? r.getCommand() : "null"));
+            }
 
             for (RewardConfig.Reward reward : positionRewards) {
                 plugin.getLogger().info("Processing reward - Type: " + reward.getType() + 
@@ -272,8 +279,16 @@ public class RewardManager {
                         .replace("{position}", String.valueOf(position));
                 
                 plugin.getLogger().info("Executing command: " + processedCommand);
-                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), processedCommand);
-                plugin.getLogger().info("Executed command reward for " + player.getName() + " for position " + position);
+                
+                // Schedule command execution on next tick to ensure it runs
+                Bukkit.getScheduler().runTask(plugin, () -> {
+                    try {
+                        boolean success = Bukkit.dispatchCommand(Bukkit.getConsoleSender(), processedCommand);
+                        plugin.getLogger().info("Command executed " + (success ? "successfully" : "with errors") + ": " + processedCommand);
+                    } catch (Exception cmdEx) {
+                        plugin.getLogger().log(Level.SEVERE, "Error executing command: " + processedCommand, cmdEx);
+                    }
+                });
             }
         } catch (Exception e) {
             plugin.getLogger().log(Level.SEVERE, "Error giving reward to " + player.getName(), e);
