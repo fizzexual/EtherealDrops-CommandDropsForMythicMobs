@@ -1,8 +1,14 @@
-# EtherealDrops
+# EtherealDrops 🌱
 
 A powerful damage tracking and reward system for MythicMobs. Track player damage, display victory messages, and reward top performers with items or commands.
 
 **Author:** Fizzexual
+
+---
+
+## About
+
+EtherealDrops is for Minecraft server owners who run MythicMobs bosses and want to reward players by how much damage they dealt. It records damage per player, ranks the fight when the boss dies, then runs position-based reward commands, broadcasts a victory message and shows a FancyHolograms leaderboard. It is an early release; item rewards are still marked as coming soon.
 
 ---
 
